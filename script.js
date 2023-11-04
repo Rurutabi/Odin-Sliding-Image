@@ -5,14 +5,13 @@ class slideImage {
   leftArrow = document.querySelector('.left-arrow');
   slide = document.querySelectorAll('.img-container');
   pageNumber = document.querySelector('.page-number');
+  nagivationDot = document.querySelectorAll('.dot');
   counter = 1;
 
   constructor() {
     this._slideRight();
     this._slideLeft();
-    this.printsomething();
   }
-  printsomething() {}
 
   _slideRight() {
     this.rightArrow.addEventListener('click', e => {
@@ -21,7 +20,33 @@ class slideImage {
 
       if (this.counter < 4) {
         this.counter++;
-        console.log(this.counter);
+
+        this.pageNumber.textContent = `${this.counter}/4`;
+
+        for (const element of this.slide) {
+          element.classList.add('hide');
+          if (element.classList.contains(`img${this.counter}`)) {
+            element.classList.remove('hide');
+          }
+        }
+
+        // for (const element of this.nagivationDot) {
+        //   element.classList.removeProperty('background-colour');
+        //   // if (element.classList.contains(`img${this.counter}`)) {
+        //   //   element.classList.remove('hide');
+        //   // }
+        // }
+      }
+    });
+  }
+
+  _slideLeft() {
+    this.leftArrow.addEventListener('click', e => {
+      e.preventDefault();
+      if (this.counter > 1) {
+        this.counter--;
+
+        this.pageNumber.textContent = `${this.counter}/4`;
 
         for (const element of this.slide) {
           element.classList.add('hide');
@@ -30,13 +55,6 @@ class slideImage {
           }
         }
       }
-    });
-  }
-
-  _slideLeft() {
-    this.leftArrow.addEventListener('click', e => {
-      e.preventDefault();
-      console.log('Left');
     });
   }
 }
