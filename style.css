@@ -92,6 +92,7 @@ img {
   border-radius: 50%;
   display: inline-block;
   margin: 0 5px;
+  background-color: white;
 }
 
 .dot1 {

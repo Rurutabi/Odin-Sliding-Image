@@ -30,12 +30,12 @@ class slideImage {
           }
         }
 
-        // for (const element of this.nagivationDot) {
-        //   element.classList.removeProperty('background-colour');
-        //   // if (element.classList.contains(`img${this.counter}`)) {
-        //   //   element.classList.remove('hide');
-        //   // }
-        // }
+        for (const element of this.nagivationDot) {
+          element.style.backgroundColor = 'white';
+          if (element.classList.contains(`dot${this.counter}`)) {
+            element.style.backgroundColor = 'black';
+          }
+        }
       }
     });
   }
@@ -52,6 +52,13 @@ class slideImage {
           element.classList.add('hide');
           if (element.classList.contains(`img${this.counter}`)) {
             element.classList.remove('hide');
+          }
+        }
+
+        for (const element of this.nagivationDot) {
+          element.style.backgroundColor = 'white';
+          if (element.classList.contains(`dot${this.counter}`)) {
+            element.style.backgroundColor = 'black';
           }
         }
       }
